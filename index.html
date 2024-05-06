@@ -1,41 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="css.css">
-<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body style="background-color:#313338;"  onload = "type()">
-<center><page-title id="Hello World"></page-title></center>
-
-<div class="container">
-<center><img class="profile" src="aprofile.png" alt="i see you are bored enough to read this. in that case, i strongly recommend that you get a life"
-     width="300" 
-     height="300"
-></center><br>
+<body>
+  <header>
+    <div class="container">
+      <h1>Home</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="container">
+      <ul class="navbar">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">asdwasd</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="typing-animation">
+  <h2>Hello World</h2>
 </div>
 
-     <center><subtitle>Aaron Wang<subtitle></center><br>
-     <center><normal>A human </normal></center>
-      <center><normal class="rainbow">(Very bad developer)</normal></center>
-
-<div class = box>
-<subtitle>About me</subtitle><br>
-<normal>AHH, WHY ARE YOU READING THIS! Oh wait, anyways my password is ******* and my social security number is ***-**-****. Also, I will not reveal mmy age, but I am under 18, and older than 10 </normal><br>
-<a href="https://xkcdnerd.github.io/">THIS IS A LINK</a>
-</div>
-
-<script>
-var i = 0;
-var txt = ' Hello World';
-var speed = 200;
-
-function type() {
-  if (i < txt.length) {
-    document.getElementById("WHY ARE YOU READING THIS").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(type, speed);
-  }
-}
-</script>
+  <main>
+    <section>
+      <div class="container">
+        <h2>awasdwasd</h2>
+        <div class="textbox glow">
+          <p>akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh </p>
+          <p>akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh </p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="container">
+        <h2>Oasdsdas</h2>
+        <div class="textbox glow">
+          <p>akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh </p>
+          <p>akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh akhd jdfsjks jsdf jkbsdgf sdbjfsb jfb sjb jhbjh </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; THIS IS MY COPYRIGHT MWHAHAHA</p>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
 </body>
 </html>
