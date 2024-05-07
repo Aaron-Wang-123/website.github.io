@@ -14,7 +14,10 @@ body {
   padding-top: 40px;
 }
 
-
+img.profile {
+  border-radius:50%;
+  box-shadow: 0 0 20px #ebe8e8;
+}
 
 .container {
   width: 80%;
