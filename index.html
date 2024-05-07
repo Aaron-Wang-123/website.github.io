@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="css.css">
 </head>
-<body>
+<body onload="typeWriter()">
   <header>
     <div class="container">
       <h1>Home</h1>
@@ -26,15 +27,30 @@
   <h2> </h2>
   <h2> </h2>
 
+
+
+
+
+<p id="demo"></p>
+
+<script>
+var i = 0;
+var txt = 'Aaron Wang';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+  
 <center><img class="profile" src="profile.png" width="250" 
      height="250"
 ></center>
-  <div>
-    <h2>                                                    <h2>
-    </div>
-<script type="module">const l=[["asdwasd","asdwasd"],["not", "Full Stack","Developer"],["Competitive","Programmer"],["Hackathon","Competitor"]],x=[["font-bold text-green","text-text"],["text-text","font-bold text-blue"],["font-bold text-red","text-text"],["font-bold text-yellow","text-text"]],s=document.getElementById("typing-container1"),r=document.getElementById("typing-container2");let n=0,t="",e="",c=!1,d=90;function a(){const i=l[n][0],o=l[n][1];let g=d;c?(e!==""?e=o.substring(0,e.length-1):t!==""&&(t=i.substring(0,t.length-1)),t===""&&e===""&&(c=!1,n++,n===l.length&&(n=0))):(t!==i?t=i.substring(0,t.length+1):e!==o&&(e=o.substring(0,e.length+1)),t===i&&e===o&&(g=2e3,c=!0)),s&&r&&(s.innerHTML=t||"&nbsp;",r.innerHTML=e||"&nbsp;",s.className=x[n][0],r.className=x[n][1]),setTimeout(a,g)}document.addEventListener("DOMContentLoaded",function(){a()});
-</script></head> <body <div class="font-mono"> <span class="font-bold text-green" id="typing-container1">Aspiring</span> <span class="text-text" id="typing-container2">
-    <section>
+  <section>
       <div class="container">
         <h2>awasdwasd</h2>
         <div class="textbox glow">
