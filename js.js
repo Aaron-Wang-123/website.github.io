@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
       setTimeout(function() {
         typingAnimation.style.borderRight = '.15em solid white'; // Add the cursor before typing
         typingAnimation.style.animation = 'typing 6s steps(40, end) forwards, blink-caret 1s step-end infinite'; // Restart the typing animation
-        typingAnimation.innerHTML = 'Hello World'; // Set the text to start typing again
+        typingAnimation.innerHTML = 'Aaron Wang'; // Set the text to start typing again
       }, 1000); // Wait for 1 second before restarting the animation
     }, 2000); // Wait for 2 seconds after finishing before deleting the text
   }
