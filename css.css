@@ -87,7 +87,7 @@ h2 {
 
 /* Glow effect */
 .glow {
-  box-shadow: 0 0 20px #ccc; /* Gray glow effect */
+  box-shadow: 0 0 10px #ccc; /* Gray glow effect */
 }
 
 .typing-animation h2 {
