@@ -102,14 +102,14 @@ h2 {
 }
 
 /* Typing animation */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 45%;
-  }
-}
+ @keyframes typing {
+        0% {
+           width: 0;
+        }
+
+        100% {
+            width: 100%;
+      }
 
 /* Blinking cursor animation */
 @keyframes blink-caret {
