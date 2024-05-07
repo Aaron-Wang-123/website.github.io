@@ -142,7 +142,7 @@ h2 {
   border-right: .15em solid white; /* Cursor effect */
   white-space: nowrap; /* Keep text in a single line */
   margin: 0 auto; /* Center text horizontally */
-  animation: typing 6s steps(40, end) forwards, blink-caret .75s step-end infinite;
+  animation: typing 10s steps(40, end) forwards, blink-caret .75s step-end infinite;
   animation-delay: 1s; /* Add a delay of 1 second */
 }
 
