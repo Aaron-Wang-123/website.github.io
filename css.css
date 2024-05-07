@@ -93,15 +93,22 @@ h2 {
   box-shadow: 0 0 10px #ccc; /* Gray glow effect */
 }
 
-/* Typing animation */
- @keyframes typing {
-        0% {
-           width: 0;
+.typing {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: typing 3s steps(1000, end);
         }
 
-        100% {
-            width: 100%;
-      }
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
 
 /* Blinking cursor animation */
 @keyframes blink-caret {
