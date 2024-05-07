@@ -93,14 +93,6 @@ h2 {
   box-shadow: 0 0 10px #ccc; /* Gray glow effect */
 }
 
-.typing-animation h2 {
-  overflow: hidden; /* Hide overflowing text */
-  border-right: .15em solid white; /* Cursor effect */
-  white-space: nowrap; /* Keep text in a single line */
-  margin: 0 auto; /* Center text horizontally */
-  animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
-}
-
 /* Typing animation */
  @keyframes typing {
   0% {
