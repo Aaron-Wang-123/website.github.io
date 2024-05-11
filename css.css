@@ -1,14 +1,11 @@
-/* Reset some default styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Dark mode */
-/* Dark mode */
 body {
-  font-family: 'Inter'; /* Inter font */
+  font-family: 'Inter'; 
   background-color: #222;
   color: #fff;
   padding-top: 40px;
@@ -29,8 +26,7 @@ header, footer {
   background-color: #333;
   padding: 20px 0;
 }
-/* Center the navigation bar and place it at the top */
-/* Styling for the navigation bar */
+
 .navbar {
   background-color: #444; /* Change the color */
   text-align: center;
