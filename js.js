@@ -48,5 +48,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
   typingAnimation.addEventListener('animationend', restartAnimation); // Restart animation after it's finished
 });
-
-
