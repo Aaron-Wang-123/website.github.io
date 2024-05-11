@@ -5,15 +5,10 @@
 }
 
 body {
-  font-family: 'Inter'; 
-  background-color: #222;
-  color: #fff;
-  padding-top: 40px;
-}
-
-img.profile {
-  border-radius:50%;
-  box-shadow: 0 0 20px #ebe8e8;
+  font-family: 'Inter', sans-serif;
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Light text color */
+  padding-top: 50px; /* Increased padding at the top */
 }
 
 .container {
@@ -22,20 +17,24 @@ img.profile {
   max-width: 1200px;
 }
 
-header, footer {
-  background-color: #333;
+header {
+  background-color: #555; /* Lighter background for header and footer */
   padding: 20px 0;
 }
 
+footer {
+  background-color: #444; /* Lighter background for header and footer */
+  padding: 20px 0;
+}
 .navbar {
-  background-color: #444; /* Change the color */
+  background-color: #444; /* Slightly lighter navbar background */
   text-align: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 15px 0; /* Add padding */
- 0.5); /* Add glow effect */
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .navbar ul {
@@ -53,99 +52,68 @@ header, footer {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  padding: 10px 15px; /* Add some padding to the links */
+  border-radius: 5px; /* Rounded corners for the links */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 .navbar li a.active {
-  color: #007bff;
+  background-color: #555; /* Change background color of active link */
 }
 
-
+.navbar li a:hover {
+  background-color: #666; /* Darken background color on hover */
+}
 
 main {
-  padding: 10px 0;
+  padding: 20px 0; /* Increased padding for content */
 }
 
 section {
-  margin-bottom: 30px;
+  margin-bottom: 40px; /* Increased space between sections */
 }
 
 h2 {
-  color: #fff;
+  color: #fff; /* Light text color for section headings */
+  margin-bottom: 20px; /* Added margin below section headings */
+}
+
+.textbox-container {
+  display: flex;
+  margin-bottom: 40px; /* Increased margin between textboxes */
 }
 
 .textbox {
-  background-color: #333;
-  border-radius: 20px;
+  flex: 1;
   padding: 20px;
-  margin-top: 20px;
+  border-radius: 10px; /* Rounded corners for textboxes */
+  background-color: #444; /* Slightly lighter background for textboxes */
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.25); /* Subtle glowing effect */
+  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
 }
 
-.textbox p {
-  margin-bottom: 10px;
+.textbox:hover {
+  box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.25); /* Brighter glowing effect on hover */
 }
 
-/* Glow effect */
-.glow {
-  box-shadow: 0 0 10px #ccc; /* Gray glow effect */
+.left-glow {
+  margin-right: 40px; /* Increased separation between textboxes */
 }
 
-.typing {
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: bottom;
-  animation: typing 3s steps(1000, end);
-        }
-
-        @keyframes typing {
-            0% {
-                width: 0;
-            }
-
-            100% {
-                width: 100%;
-            }
-        }
-
-/* Blinking cursor animation */
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: white;
-  }
+.right-glow {
+  margin-left: 40px; /* Increased separation between textboxes */
 }
 
-/* Deleting animation */
-@keyframes deleting {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0;
-  }
+.profile {
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2); /* Subtle glowing effect */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
-.typing-animation h2 {
-  overflow: hidden; /* Hide overflowing text */
-  border-right: .15em solid white; /* Cursor effect */
-  white-space: nowrap; /* Keep text in a single line */
-  margin: 0 auto; /* Center text horizontally */
-  animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+.profile:hover {
+  transform: scale(1.1); /* Scale up the profile image on hover */
 }
 
-.pulse {
-            animation: typing 1s;
-        }
-
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
-        }
-/*taken from rice: https://keenwa.x10.mx/coolcolors/coolcolors.css*/
+footer {
+  text-align: center; /* Centered text in footer */
+}
