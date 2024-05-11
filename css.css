@@ -1,3 +1,4 @@
+/* Paste the CSS code here */
 * {
   margin: 0;
   padding: 0;
@@ -17,15 +18,11 @@ body {
   max-width: 1200px;
 }
 
-header {
+header, footer {
   background-color: #555; /* Lighter background for header and footer */
   padding: 20px 0;
 }
 
-footer {
-  background-color: #444; /* Lighter background for header and footer */
-  padding: 20px 0;
-}
 .navbar {
   background-color: #444; /* Slightly lighter navbar background */
   text-align: center;
