@@ -120,3 +120,25 @@ h2 {
 footer {
   text-align: center; 
 }
+
+@media screen and (max-width: 768px) {
+  .textbox-container {
+    flex-direction: column; /* Stack textboxes vertically on smaller screens */
+  }
+
+  .textbox {
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+
+  .left-glow, .right-glow {
+    margin: 0; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .textbox {
+    width: 100%; 
+    margin-bottom: 40px; /
+  }
+}
