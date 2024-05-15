@@ -10,6 +10,10 @@ body {
   color: #ccc; 
   padding-top: 50px; 
 }
+a.link {
+  font-family: 'Inter', sans-serif;
+  color: #999; 
+}
 button {
   padding: 10px 20px;
   font-size: 16px;
