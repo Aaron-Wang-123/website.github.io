@@ -16,16 +16,48 @@
 	</div>
     </nav>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #1a1a1a;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1f1f1f;
+  color: #ccc; 
+  padding-top: 50px; 
+}
+a.link {
+  font-family: 'Inter', sans-serif;
+  color: white; 
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px; 
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px; 
+}
+button:hover {
+  background-color: #555;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+header, footer {
+  background-color: #444; 
+  color: #fff;
+  padding: 20px 0;
+}
+
 .navbar {
   background-color: #2c2c2c;
   text-align: center;
@@ -62,11 +94,88 @@
   background-color: #555; 
 }
 
-	.navbar li a:hover {
-  	background-color: #444; 
-	}
+.navbar li a:hover {
+  background-color: #444; 
+}
+
 main {
   padding: 70px 0 20px; 
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #fff; 
+  margin-bottom: 20px; 
+}
+
+.textbox-container {
+  display: flex;
+  margin-bottom: 40px; 
+}
+
+.textbox {
+  flex: 1;
+  scale: 1;
+  padding: 20px;
+  border-radius: 10px; 
+  background-color: #333; 
+  box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.5); 
+  transition: scale 0.3s ease, box-shadow 0.3s ease;
+}
+
+.textbox:hover {
+  scale: 1.03;
+  box-shadow: 0 0 40px 0px rgba(255, 255, 255, 0.5); 
+}
+
+.left-glow {
+  margin-right: 40px; 
+}
+
+.right-glow {
+  margin-left: 40px; 
+}
+
+.profile {
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.3); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /
+  position: relative; 
+  z-index: 998; /
+}
+
+.profile:hover {
+  transform: scale(1.1); 
+  box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.3); 
+}
+
+footer {
+  text-align: center; 
+}
+
+@media screen and (max-width: 768px) {
+  .textbox-container {
+    flex-direction: column; /* Stack textboxes vertically on smaller screens */
+  }
+
+  .textbox {
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+
+  .left-glow, .right-glow {
+    margin: 0; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .textbox {
+    width: 100%; 
+    margin-bottom: 40px; /
+  }
 }
 
         #gameContainer {
