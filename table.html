@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Periodic Table Memorizer</title>
+  <style>
+    /* CSS for overall page layout */
+    body {
+      font-family: Inter, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* CSS for periodic table layout */
+    #periodic-table {
+      display: grid;
+      grid-template-columns: repeat(18, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+      gap: 10px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .element {
+      border: 2px solid #333;
+      background-color: #333;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 8px;
+    }
+
+    .element:hover {
+      background-color: #555;
+      border-color: #555;
+    }
+
+    #element-info {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px solid #333;
+      background-color: #333;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    #element-info h2 {
+      margin-top: 0;
+      font-size: 2em;
+      color: #fff;
+    }
+
+    #element-info p {
+      margin: 5px 0;
+      font-size: 1.2em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Periodic Table</h1>
+  
+  <!-- Periodic Table Grid -->
+  <div id="periodic-table">
+    <!-- Elements will be generated here -->
+  </div>
+
+  <!-- Element Information -->
+  <div id="element-info">
+    <!-- Element information will be displayed here -->
+  </div>
+
+  <script>
+    // Sample data for elements
+    const elements = [
+      { symbol: 'H', name: 'Hydrogen', atomicNumber: 1, atomicMass: '1.008', position: { column: 1, row: 1 } },
+      { symbol: 'He', name: 'Helium', atomicNumber: 2, atomicMass: '4.0026', position: { column: 18, row: 1 } },
+      { symbol: 'Li', name: 'Lithium', atomicNumber: 3, atomicMass: '6.94', position: { column: 1, row: 2 } },
+      { symbol: 'Be', name: 'Beryllium', atomicNumber: 4, atomicMass: '9.0122', position: { column: 2, row: 2 } },
+      { symbol: 'B', name: 'Boron', atomicNumber: 5, atomicMass: '10.81', position: { column: 13, row: 2 } },
+      { symbol: 'C', name: 'Carbon', atomicNumber: 6, atomicMass: '12.011', position: { column: 14, row: 2 } },
+      { symbol: 'N', name: 'Nitrogen', atomicNumber: 7, atomicMass: '14.007', position: { column: 15, row: 2 } },
+      { symbol: 'O', name: 'Oxygen', atomicNumber: 8, atomicMass: '15.999', position: { column: 16, row: 2 } },
+      { symbol: 'F', name: 'Fluorine', atomicNumber: 9, atomicMass: '18.998', position: { column: 17, row: 2 } },
+      { symbol: 'Ne', name: 'Neon', atomicNumber: 10, atomicMass: '20.180', position: { column: 18, row: 2 } },
+      { symbol: 'Na', name: 'Sodium', atomicNumber: 11, atomicMass: '22.990', position: { column: 1, row: 3 } },
+      { symbol: 'Mg', name: 'Magnesium', atomicNumber: 12, atomicMass: '24.305', position: { column: 2, row: 3 } },
+      { symbol: 'Al', name: 'Aluminum', atomicNumber: 13, atomicMass: '26.982', position: { column: 13, row: 3 } },
+      { symbol: 'Si', name: 'Silicon', atomicNumber: 14, atomicMass: '28.085', position: { column: 14, row: 3 } },
+      { symbol: 'P', name: 'Phosphorus', atomicNumber: 15, atomicMass: '30.974', position: { column: 15, row: 3 } },
+      { symbol: 'S', name: 'Sulfur', atomicNumber: 16, atomicMass: '32.06', position: { column: 16, row: 3 } },
+      { symbol: 'Cl', name: 'Chlorine', atomicNumber: 17, atomicMass: '35.45', position: { column: 17, row: 3 } },
+      { symbol: 'Ar', name: 'Argon', atomicNumber: 18, atomicMass: '39.948', position: { column: 18, row: 3 } },
+      { symbol: 'K', name: 'Potassium', atomicNumber: 19, atomicMass: '39.098', position: { column: 1, row: 4 } },
+      { symbol: 'Ca', name: 'Calcium', atomicNumber: 20, atomicMass: '40.078', position: { column: 2, row: 4 } },
+      { symbol: 'Sc', name: 'Scandium', atomicNumber: 21, atomicMass: '44.956', position: { column: 3, row: 4 } },
+      { symbol: 'Ti', name: 'Titanium', atomicNumber: 22, atomicMass: '47.867', position: { column: 4, row: 4 } },
+      { symbol: 'V', name: 'Vanadium', atomicNumber: 23, atomicMass: '50.942', position: { column: 5, row: 4 } },
+      { symbol: 'Cr', name: 'Chromium', atomicNumber: 24, atomicMass: '51.996', position: { column: 6, row: 4 } },
+      { symbol: 'Mn', name: 'Manganese', atomicNumber: 25, atomicMass: '54.938', position: { column: 7, row: 4 } },
+      { symbol: 'Fe', name: 'Iron', atomicNumber: 26, atomicMass: '55.845', position: { column: 8, row: 4 } },
+      { symbol: 'Co', name: 'Cobalt', atomicNumber: 27, atomicMass: '58.933', position: { column: 9, row: 4 } },
+      { symbol: 'Ni', name: 'Nickel', atomicNumber: 28, atomicMass: '58.693', position: { column: 10, row: 4 } },
+      { symbol: 'Cu', name: 'Copper', atomicNumber: 29, atomicMass: '63.546', position: { column: 11, row: 4 } },
+      { symbol: 'Zn', name: 'Zinc', atomicNumber: 30, atomicMass: '65.38', position: { column: 12, row: 4 } },
+      { symbol: 'Ga', name: 'Gallium', atomicNumber: 31, atomicMass: '69.723', position: { column: 13, row: 4 } },
+      { symbol: 'Ge', name: 'Germanium', atomicNumber: 32, atomicMass: '72.63', position: { column: 14, row: 4 } },
+      { symbol: 'As', name: 'Arsenic', atomicNumber: 33, atomicMass: '74.922', position: { column: 15, row: 4 } },
+      { symbol: 'Se', name: 'Selenium', atomicNumber: 34, atomicMass: '78.971', position: { column: 16, row: 4 } },
+      { symbol: 'Br', name: 'Bromine', atomicNumber: 35, atomicMass: '79.904', position: { column: 17, row: 4 } },
+      { symbol: 'Kr', name: 'Krypton', atomicNumber: 36, atomicMass: '83.798', position: { column: 18, row: 4 } },
+      { symbol: 'Rb', name: 'Rubidium', atomicNumber: 37, atomicMass: '85.468', position: { column: 1, row: 5 } },
+      { symbol: 'Sr', name: 'Strontium', atomicNumber: 38, atomicMass: '87.62', position: { column: 2, row: 5 } },
+      { symbol: 'Y', name: 'Yttrium', atomicNumber: 39, atomicMass: '88.906', position: { column: 3, row: 5 } },
+      { symbol: 'Zr', name: 'Zirconium', atomicNumber: 40, atomicMass: '91.224', position: { column: 4, row: 5 } },
+      { symbol: 'Nb', name: 'Niobium', atomicNumber: 41, atomicMass: '92.906', position: { column: 5, row: 5 } },
+      { symbol: 'Mo', name: 'Molybdenum', atomicNumber: 42, atomicMass: '95.95', position: { column: 6, row: 5 } },
+      { symbol: 'Tc', name: 'Technetium', atomicNumber: 43, atomicMass: '(98)', position: { column: 7, row: 5 } },
+      { symbol: 'Ru', name: 'Ruthenium', atomicNumber: 44, atomicMass: '101.07', position: { column: 8, row: 5 } },
+      { symbol: 'Rh', name: 'Rhodium', atomicNumber: 45, atomicMass: '102.91', position: { column: 9, row: 5 } },
+      { symbol: 'Pd', name: 'Palladium', atomicNumber: 46, atomicMass: '106.42', position: { column: 10, row: 5 } },
+      { symbol: 'Ag', name: 'Silver', atomicNumber: 47, atomicMass: '107.87', position: { column: 11, row: 5 } },
+      { symbol: 'Cd', name: 'Cadmium', atomicNumber: 48, atomicMass: '112.41', position: { column: 12, row: 5 } },
+      { symbol: 'In', name: 'Indium', atomicNumber: 49, atomicMass: '114.82', position: { column: 13, row: 5 } },
+      { symbol: 'Sn', name: 'Tin', atomicNumber: 50, atomicMass: '118.71', position: { column: 14, row: 5 } },
+      { symbol: 'Sb', name: 'Antimony', atomicNumber: 51, atomicMass: '121.76', position: { column: 15, row: 5 } },
+      { symbol: 'Te', name: 'Tellurium', atomicNumber: 52, atomicMass: '127.6', position: { column: 16, row: 5 } },
+      { symbol: 'I', name: 'Iodine', atomicNumber: 53, atomicMass: '126.9', position: { column: 17, row: 5 } },
+      { symbol: 'Xe', name: 'Xenon', atomicNumber: 54, atomicMass: '131.29', position: { column: 18, row: 5 } },
+      { symbol: 'Cs', name: 'Cesium', atomicNumber: 55, atomicMass: '132.91', position: { column: 1, row: 6 } },
+      { symbol: 'Ba', name: 'Barium', atomicNumber: 56, atomicMass: '137.33', position: { column: 2, row: 6 } },
+      { symbol: 'La', name: 'Lanthanum', atomicNumber: 57, atomicMass: '138.91', position: { column: 4, row: 9 } },
+      { symbol: 'Ce', name: 'Cerium', atomicNumber: 58, atomicMass: '140.12', position: { column: 5, row: 9 } },
+      { symbol: 'Pr', name: 'Praseodymium', atomicNumber: 59, atomicMass: '140.91', position: { column: 6, row: 9 } },
+      { symbol: 'Nd', name: 'Neodymium', atomicNumber: 60, atomicMass: '144.24', position: { column: 7, row: 9 } },
+      { symbol: 'Pm', name: 'Promethium', atomicNumber: 61, atomicMass: '(145)', position: { column: 8, row: 9 } },
+      { symbol: 'Sm', name: 'Samarium', atomicNumber: 62, atomicMass: '150.36', position: { column: 9, row: 9 } },
+      { symbol: 'Eu', name: 'Europium', atomicNumber: 63, atomicMass: '151.96', position: { column: 10, row: 9 } },
+      { symbol: 'Gd', name: 'Gadolinium', atomicNumber: 64, atomicMass: '157.25', position: { column: 11, row: 9 } },
+      { symbol: 'Tb', name: 'Terbium', atomicNumber: 65, atomicMass: '158.93', position: { column: 12, row: 9 } },
+      { symbol: 'Dy', name: 'Dysprosium', atomicNumber: 66, atomicMass: '162.5', position: { column: 13, row: 9 } },
+      { symbol: 'Ho', name: 'Holmium', atomicNumber: 67, atomicMass: '164.93', position: { column: 14, row: 9 } },
+      { symbol: 'Er', name: 'Erbium', atomicNumber: 68, atomicMass: '167.26', position: { column: 15, row: 9 } },
+      { symbol: 'Tm', name: 'Thulium', atomicNumber: 69, atomicMass: '168.93', position: { column: 16, row: 9 } },
+      { symbol: 'Yb', name: 'Ytterbium', atomicNumber: 70, atomicMass: '173.05', position: { column: 17, row: 9 } },
+      { symbol: 'Lu', name: 'Lutetium', atomicNumber: 71, atomicMass: '174.97', position: { column: 18, row: 9 } },
+      { symbol: 'Hf', name: 'Hafnium', atomicNumber: 72, atomicMass: '178.49', position: { column: 4, row: 6 } },
+      { symbol: 'Ta', name: 'Tantalum', atomicNumber: 73, atomicMass: '180.95', position: { column: 5, row: 6 } },
+      { symbol: 'W', name: 'Tungsten', atomicNumber: 74, atomicMass: '183.84', position: { column: 6, row: 6 } },
+      { symbol: 'Re', name: 'Rhenium', atomicNumber: 75, atomicMass: '186.21', position: { column: 7, row: 6 } },
+      { symbol: 'Os', name: 'Osmium', atomicNumber: 76, atomicMass: '190.23', position: { column: 8, row: 6 } },
+      { symbol: 'Ir', name: 'Iridium', atomicNumber: 77, atomicMass: '192.22', position: { column: 9, row: 6 } },
+      { symbol: 'Pt', name: 'Platinum', atomicNumber: 78, atomicMass: '195.08', position: { column: 10, row: 6 } },
+      { symbol: 'Au', name: 'Gold', atomicNumber: 79, atomicMass: '196.97', position: { column: 11, row: 6 } },
+      { symbol: 'Hg', name: 'Mercury', atomicNumber: 80, atomicMass: '200.59', position: { column: 12, row: 6 } },
+      { symbol: 'Tl', name: 'Thallium', atomicNumber: 81, atomicMass: '204.38', position: { column: 13, row: 6 } },
+      { symbol: 'Pb', name: 'Lead', atomicNumber: 82, atomicMass: '207.2', position: { column: 14, row: 6 } },
+      { symbol: 'Bi', name: 'Bismuth', atomicNumber: 83, atomicMass: '208.98', position: { column: 15, row: 6 } },
+      { symbol: 'Po', name: 'Polonium', atomicNumber: 84, atomicMass: '(209)', position: { column: 16, row: 6 } },
+      { symbol: 'At', name: 'Astatine', atomicNumber: 85, atomicMass: '(210)', position: { column: 17, row: 6 } },
+      { symbol: 'Rn', name: 'Radon', atomicNumber: 86, atomicMass: '(222)', position: { column: 18, row: 6 } },
+      { symbol: 'Fr', name: 'Francium', atomicNumber: 87, atomicMass: '(223)', position: { column: 1, row: 7 } },
+      { symbol: 'Ra', name: 'Radium', atomicNumber: 88, atomicMass: '(226)', position: { column: 2, row: 7 } },
+      { symbol: 'Ac', name: 'Actinium', atomicNumber: 89, atomicMass: '(227)', position: { column: 4, row: 10 } },
+      { symbol: 'Th', name: 'Thorium', atomicNumber: 90, atomicMass: '232.04', position: { column: 5, row: 10 } },
+      { symbol: 'Pa', name: 'Protactinium', atomicNumber: 91, atomicMass: '231.04', position: { column: 6, row: 10 } },
+      { symbol: 'U', name: 'Uranium', atomicNumber: 92, atomicMass: '238.03', position: { column: 7, row: 10 } },
+      { symbol: 'Np', name: 'Neptunium', atomicNumber: 93, atomicMass: '(237)', position: { column: 8, row: 10 } },
+      { symbol: 'Pu', name: 'Plutonium', atomicNumber: 94, atomicMass: '(244)', position: { column: 9, row: 10 } },
+      { symbol: 'Am', name: 'Americium', atomicNumber: 95, atomicMass: '(243)', position: { column: 10, row: 10 } },
+      { symbol: 'Cm', name: 'Curium', atomicNumber: 96, atomicMass: '(247)', position: { column: 11, row: 10 } },
+      { symbol: 'Bk', name: 'Berkelium', atomicNumber: 97, atomicMass: '(247)', position: { column: 12, row: 10 } },
+      { symbol: 'Cf', name: 'Californium', atomicNumber: 98, atomicMass: '(251)', position: { column: 13, row: 10 } },
+      { symbol: 'Es', name: 'Einsteinium', atomicNumber: 99, atomicMass: '(252)', position: { column: 14, row: 10 } },
+      { symbol: 'Fm', name: 'Fermium', atomicNumber: 100, atomicMass: '(257)', position: { column: 15, row: 10 } },
+      { symbol: 'Md', name: 'Mendelevium', atomicNumber: 101, atomicMass: '(258)', position: { column: 16, row: 10 } },
+      { symbol: 'No', name: 'Nobelium', atomicNumber: 102, atomicMass: '(259)', position: { column: 17, row: 10 } },
+      { symbol: 'Lr', name: 'Lawrencium', atomicNumber: 103, atomicMass: '(266)', position: { column: 18, row: 10 } },
+      { symbol: 'Rf', name: 'Rutherfordium', atomicNumber: 104, atomicMass: '(267)', position: { column: 4, row: 7 } },
+      { symbol: 'Db', name: 'Dubnium', atomicNumber: 105, atomicMass: '(268)', position: { column: 5, row: 7 } },
+      { symbol: 'Sg', name: 'Seaborgium', atomicNumber: 106, atomicMass: '(269)', position: { column: 6, row: 7 } },
+      { symbol: 'Bh', name: 'Bohrium', atomicNumber: 107, atomicMass: '(270)', position: { column: 7, row: 7 } },
+      { symbol: 'Hs', name: 'Hassium', atomicNumber: 108, atomicMass: '(269)', position: { column: 8, row: 7 } },
+      { symbol: 'Mt', name: 'Meitnerium', atomicNumber: 109, atomicMass: '(278)', position: { column: 9, row: 7 } },
+      { symbol: 'Ds', name: 'Darmstadtium', atomicNumber: 110, atomicMass: '(281)', position: { column: 10, row: 7 } },
+      { symbol: 'Rg', name: 'Roentgenium', atomicNumber: 111, atomicMass: '(282)', position: { column: 11, row: 7 } },
+      { symbol: 'Cn', name: 'Copernicium', atomicNumber: 112, atomicMass: '(285)', position: { column: 12, row: 7 } },
+      { symbol: 'Nh', name: 'Nihonium', atomicNumber: 113, atomicMass: '(286)', position: { column: 13, row: 7 } },
+      { symbol: 'Fl', name: 'Flerovium', atomicNumber: 114, atomicMass: '(289)', position: { column: 14, row: 7 } },
+      { symbol: 'Mc', name: 'Moscovium', atomicNumber: 115, atomicMass: '(290)', position: { column: 15, row: 7 } },
+      { symbol: 'Lv', name: 'Livermorium', atomicNumber: 116, atomicMass: '(293)', position: { column: 16, row: 7 } },
+      { symbol: 'Ts', name: 'Tennessine', atomicNumber: 117, atomicMass: '(294)', position: { column: 17, row: 7 } },
+      { symbol: 'Og', name: 'Oganesson', atomicNumber: 118, atomicMass: '(294)', position: { column: 18, row: 7 } },
+    ];
+
+    // Function to generate the periodic table
+    function generatePeriodicTable() {
+      const table = document.getElementById('periodic-table');
+
+      elements.forEach(element => {
+        const el = document.createElement('div');
+        el.classList.add('element');
+        el.textContent = element.symbol;
+        el.style.gridColumn = `${element.position.column} / span 1`;
+        el.style.gridRow = `${element.position.row} / span 1`;
+        el.addEventListener('click', () => showElementInfo(element));
+        table.appendChild(el);
+      });
+    }
+
+    // Function to display element information
+    function showElementInfo(element) {
+      const info = document.getElementById('element-info');
+      info.innerHTML = `
+        <h2>${element.name}</h2>
+        <p>Symbol: ${element.symbol}</p>
+        <p>Atomic Number: ${element.atomicNumber}</p>
+        <p>Atomic Mass: ${element.atomicMass}</p>
+      `;
+    }
+
+    // Generate the periodic table when the page loads
+    window.onload = generatePeriodicTable;
+  </script>
+</body>
+</html>
