@@ -103,7 +103,7 @@ h2 {
   scale: 1;
   padding: 20px;
   border-radius: 10px; 
-  background-color: #333; 
+  background-color: #383a40; 
   box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.5); 
   transition: scale 0.3s ease, box-shadow 0.3s ease;
 }
