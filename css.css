@@ -20,7 +20,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   margin-top: 20px; 
-  background-color: #5865F2; /* Discord button color */
+  background-color: #444; /* Discord button color */
   color: white;
   border: none;
   cursor: pointer;
