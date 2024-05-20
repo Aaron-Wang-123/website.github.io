@@ -20,7 +20,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   margin-top: 20px; 
-  background-color: #444; /* Discord button color */
+  background-color: #555; /* Discord button color */
   color: white;
   border: none;
   cursor: pointer;
@@ -29,7 +29,7 @@ button {
 }
 
 button:hover {
-  background-color: #555; /* Slightly darker shade for hover */
+  background-color: #666; /* Slightly darker shade for hover */
 }
 
 .container {
