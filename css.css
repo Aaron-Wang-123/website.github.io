@@ -29,7 +29,7 @@ button {
 }
 
 button:hover {
-  background-color: #4752C4; /* Slightly darker shade for hover */
+  background-color: #555; /* Slightly darker shade for hover */
 }
 
 .container {
@@ -103,7 +103,7 @@ h1 {
 }
 .small {
   color: #fff; 
-  font-size: 50px
+  font-size: 40px
 }
 
 .textbox-container {
