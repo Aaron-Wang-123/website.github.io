@@ -13,14 +13,14 @@ body {
 
 a.link {
   font-family: 'Inter', sans-serif;
-  color: #7289DA; /* Discord link color */
+  color: #999; /* Discord link color */
 }
 
 button {
   padding: 10px 20px;
   font-size: 16px;
   margin-top: 20px; 
-  background-color: #555; /* Discord button color */
+  background-color: #7289DA; /* Discord button color */
   color: white;
   border: none;
   cursor: pointer;
